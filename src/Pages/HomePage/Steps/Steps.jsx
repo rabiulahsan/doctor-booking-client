@@ -1,9 +1,26 @@
 import { Link } from "react-router-dom";
 import StepsCard from "./StepsCard";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Steps = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    gsap.from(".stepsCardContainer", {
+      scale: 0.4,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".stepsCardContainer",
+        markers: true,
+        start: "top 100%",
+        end: "top 40%",
+        scrub: 1,
+      },
+    });
+  });
   return (
-    <div className="bg-green-600 mx-[12%] my-[5%] py-8 rounded-lg h-[360px] relative">
+    <div className="stepsCardContainer bg-green-600 mx-[12%] my-[5%] py-8 rounded-lg h-[360px] relative">
       <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
           Easy Steps To Get Your Solution
