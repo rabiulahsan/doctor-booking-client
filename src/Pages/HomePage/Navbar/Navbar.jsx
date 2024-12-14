@@ -49,11 +49,18 @@ const Navbar = () => {
       delay: 0.4,
       duration: 0.6,
     });
-    tl.from(".nav-options span, .nav-options button, .theme-btn button", {
+    tl.from(".nav-options span, .nav-options button, .theme-btn", {
       y: -100,
       opacity: 0,
       stagger: 0.2,
     });
+
+    tl.fromTo(
+      ".theme-btn button",
+      { y: -100, opacity: 0 }, // Initial state
+      { y: 0, opacity: 1, duration: 0.6 }, // Target state
+      "-=0.3" // Overlap with the previous animation
+    );
   });
 
   return (

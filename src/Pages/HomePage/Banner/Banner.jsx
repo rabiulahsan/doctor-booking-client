@@ -14,17 +14,16 @@ const Banner = () => {
   };
 
   useGSAP(() => {
-    let bannerTimeline = gsap.timeline();
-    bannerTimeline.from(".banner-title", {
+    gsap.from(".banner-title", {
       y: -100,
       opacity: 0,
-      delay: 0.4,
+      delay: 0.7,
       duration: 0.6,
     });
-    bannerTimeline.from(".banner-desc, .search-input", {
+    gsap.from(".banner-desc, .search-input", {
       y: 100,
       opacity: 0,
-      delay: 0.4,
+      delay: 0.7,
       duration: 0.6,
     });
   });

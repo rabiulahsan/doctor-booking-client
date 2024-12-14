@@ -5,30 +5,21 @@ const DoctorsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchInput, setSearchInput] = useState("");
 
-  const handleInputChange = (e) => {
-    setSearchInput(e.target.value);
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchInput.trim()) {
+      console.log("Searching for:", searchInput);
+      setSearchInput("");
+    }
   };
-
-  const handleSearch = () => {
-    console.log("Searching for:", searchInput);
-  };
-
-  const categories = [
-    "Cardiologists",
-    "Ophthalmologists",
-    "Endocrinologists",
-    "Dermatologists",
-    "Allergists",
-  ];
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
     console.log(selectedCategory);
   };
   return (
-    <div>
+    <>
       <SectionTitle heading={"Find Your Doctor"}></SectionTitle>
-      <div className=" flex items-center gap-x-5">
+      <div className=" flex items-center gap-x-5 mx-[8%]">
         <div className="">
           {/* Search Icon and Input */}
 
@@ -36,14 +27,15 @@ const DoctorsPage = () => {
             type="text"
             placeholder="Search"
             value={searchInput}
-            onChange={handleInputChange}
-            className="outline-none text-slate-700 border border-slate-300 rounded-sm  shadow-sm py-3 px-4 "
+            onChange={(e) => setSearchInput(e.target.value)}
+            className="outline-none text-slate-700 border border-slate-300 rounded-sm  shadow-sm py-[10px] px-4 "
+            onKeyDown={handleSearch}
           />
 
           {/* Search Button */}
           <button
             onClick={handleSearch}
-            className=" text-white font-semibold px-5 py-3 ml-5 bg-green-600 hover:bg-green-700 transition rounded-sm"
+            className=" text-white font-semibold px-6 py-[10px] ml-5 bg-green-600 hover:bg-green-700 transition rounded-sm"
           >
             Search
           </button>
@@ -70,8 +62,16 @@ const DoctorsPage = () => {
           </select>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
 export default DoctorsPage;
+
+const categories = [
+  "Cardiologists",
+  "Ophthalmologists",
+  "Endocrinologists",
+  "Dermatologists",
+  "Allergists",
+];

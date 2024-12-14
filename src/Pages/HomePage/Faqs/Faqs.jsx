@@ -25,6 +25,7 @@ const Faqs = () => {
             start: "top 80%", // Animation starts when FAQ enters the viewport
             end: "top 40%", // Animation ends when FAQ is closer to the center
             scrub: 1,
+            markers: true,
             toggleActions: "reverse play reverse reverse", // Animates in and out
           },
         }

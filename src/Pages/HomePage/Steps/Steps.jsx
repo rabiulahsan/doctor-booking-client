@@ -8,8 +8,8 @@ const Steps = () => {
   gsap.registerPlugin(ScrollTrigger);
   useGSAP(() => {
     gsap.from(".stepsCardContainer", {
-      scale: 0.4,
-      opacity: 0,
+      scale: 0.3,
+      opacity: 0.4,
       scrollTrigger: {
         trigger: ".stepsCardContainer",
         markers: true,
