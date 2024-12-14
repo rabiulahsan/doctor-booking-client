@@ -1,9 +1,13 @@
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Routes/Routes";
+import ReactDOM from "react-dom/client";
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
 import "./index.css";
 
-createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <p>Main Page</p>
+    {/* <SkeletonTheme baseColor="#313131" highlightColor="#525252"> */}
+    <RouterProvider router={router}></RouterProvider>
+    {/* </SkeletonTheme> */}
   </StrictMode>
 );
