@@ -1,4 +1,3 @@
-import { Player } from "@lottiefiles/react-lottie-player";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const About = () => {
@@ -7,12 +6,7 @@ const About = () => {
       <SectionTitle heading="What Makes Us Different"></SectionTitle>
       <div className="flex justify-between items-center">
         <div className="w-1/2">
-          <Player
-            className="h-[300px]"
-            autoplay
-            loop
-            src="/about.json" // Ensure the path is correct
-          ></Player>
+          <img src="/about.png" alt="" />
         </div>
         <div className="w-1/2 text-slate-500 leading-8">
           <p className="w-[80%]">

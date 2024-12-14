@@ -14,7 +14,7 @@ const Faqs = () => {
     faqRefs.current.forEach((faq) => {
       gsap.fromTo(
         faq,
-        { x: -200, opacity: 0 }, // Initial position: off-screen to the left
+        { x: -200 }, // Initial position: off-screen to the left
         {
           x: 0, // Final position: at its original position
           opacity: 1,
@@ -22,8 +22,9 @@ const Faqs = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: faq,
-            start: "top 90%", // Animation starts when FAQ enters the viewport
+            start: "top 80%", // Animation starts when FAQ enters the viewport
             end: "top 40%", // Animation ends when FAQ is closer to the center
+            scrub: 1,
             toggleActions: "reverse play reverse reverse", // Animates in and out
           },
         }
