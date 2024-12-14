@@ -52,7 +52,6 @@ const Navbar = () => {
     tl.from(".nav-options span, .nav-options button, .theme-btn button", {
       y: -100,
       opacity: 0,
-      duration: 0.6,
       stagger: 0.2,
     });
   });

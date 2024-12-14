@@ -11,7 +11,7 @@ const FaqItem = ({ question, answer }) => {
   };
 
   return (
-    <div className="border-b">
+    <div className="border-b faq-single">
       <div
         className="flex justify-between items-center cursor-pointer py-6 px-[5%] text-slate-600 bg-slate-100 hover:bg-slate-200"
         onClick={toggleAccordion}

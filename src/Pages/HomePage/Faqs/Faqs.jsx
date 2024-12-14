@@ -1,11 +1,17 @@
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import FaqItem from "./FaqItem";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Faqs = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  //todo => animate the faq page
   return (
-    <div className="mb-[5%]">
+    <div className="mb-[5%] faq-container">
       <SectionTitle heading="Insightful Answers to Common Questions"></SectionTitle>
-      <div className="mx-[5%] px-[4%]">
+      <div className="mx-[5%] px-[4%] faq-item faq-item">
         {faqs.map((faq) => (
           <FaqItem key={faq.id} question={faq.question} answer={faq.answer} />
         ))}
