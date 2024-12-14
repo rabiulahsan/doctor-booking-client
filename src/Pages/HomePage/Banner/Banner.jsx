@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SvgLine from "../../../Components/ActiveLink/SvgLine/SvgLine";
+import SvgLine from "../../../Components/SvgLine/SvgLine";
 
 const Banner = () => {
   const [searchValue, setSearchValue] = useState("");
