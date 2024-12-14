@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SvgLine from "../../../Components/ActiveLink/SvgLine/SvgLine";
 
 const Banner = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -38,6 +39,10 @@ const Banner = () => {
         >
           Search
         </button>
+      </div>
+
+      <div className="flex justify-center items-center mt-[3%] ">
+        <SvgLine></SvgLine>
       </div>
     </div>
   );

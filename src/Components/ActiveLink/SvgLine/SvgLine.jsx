@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 
 const SvgLine = () => {
-  const initial_path = `M 10 80 Q 300 80 590 80`;
+  const initial_path = `M 10 80 Q 300 80 990 80`;
 
   const handleAnimation = (e) => {
     // Get bounding box of the container
@@ -13,7 +13,7 @@ const SvgLine = () => {
     const path = `M 10 80 Q ${Math.min(relativeX, 590)} ${Math.min(
       relativeY,
       160
-    )} 590 80`;
+    )} 990 80`;
 
     gsap.to("svg path", {
       attr: { d: path },
@@ -35,10 +35,10 @@ const SvgLine = () => {
       className=""
       onMouseMove={handleAnimation}
       onMouseLeave={handleMouseLeave}
-      style={{ width: "600px", height: "200px" }}
+      style={{ width: "1000px", height: "200px" }}
     >
-      <svg width="600" height="160" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 10 80 Q 300 80 590 80" stroke="black" fill="transparent" />
+      <svg width="1000" height="160" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10 80 Q 500 80 990 80" stroke="black" fill="transparent" />
       </svg>
     </div>
   );
