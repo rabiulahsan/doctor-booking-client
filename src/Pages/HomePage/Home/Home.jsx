@@ -3,6 +3,7 @@ import Steps from "../Steps/Steps";
 import Numbers from "../Numbers/Numbers";
 import Categories from "../Categories/Categories";
 import Faq from "../Faqs/Faqs";
+import About from "../About/About";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Numbers></Numbers>
       <Categories></Categories>
       <Faq></Faq>
+      <About></About>
     </div>
   );
 };
