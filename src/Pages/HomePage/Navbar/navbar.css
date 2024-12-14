@@ -1,0 +1,21 @@
+.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Adjust to move closer or further from text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%; /* Controls the underline width */
+  height: 4px; /* Thickness of the underline */
+  background-color: #22c55e; /* Same as green-500 */
+  animation: underlineExpand 0.5s ease forwards; /* Apply animation */
+}
+
+/* Keyframes for expanding underline animation */
+@keyframes underlineExpand {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 50%; /* End with 50% width */
+  }
+}
