@@ -4,6 +4,8 @@ import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { MdOutlineLogout, MdOutlineLogin } from "react-icons/md";
 import { Link } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
 const Navbar = () => {
   const handleLogOut = () => {
@@ -39,10 +41,26 @@ const Navbar = () => {
   const handleLight = () => setTheme("light");
   const handleNight = () => setTheme("dark");
 
+  useGSAP(() => {
+    let tl = gsap.timeline();
+    tl.from(".title", {
+      y: -100,
+      opacity: 0,
+      delay: 0.4,
+      duration: 0.6,
+    });
+    tl.from(".nav-options span, .nav-options button, .theme-btn button", {
+      y: -100,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.2,
+    });
+  });
+
   return (
     <div>
       <div className="hidden md:flex justify-between items-center w-full py-5 px-[6%] relative bg-white bg-opacity-60 backdrop-blur-sm">
-        <div>
+        <div className="title">
           <Link href="/">
             <p className="text-4xl font-bold font-playball text-slate-600">
               <span className="text-green-500">Easy</span>Care
@@ -50,7 +68,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex items-center gap-x-4">
+        <div className="nav-options flex items-center gap-x-4">
           <div className="flex items-center gap-x-8 mr-10">
             <span className="text-slate-500 font-semibold">
               <ActiveLink to="/">Home</ActiveLink>
@@ -73,7 +91,7 @@ const Navbar = () => {
             <MdOutlineLogin className="text-xl font-semibold" />
           </button>
 
-          <div className="text-slate-600 flex items-center ml-2">
+          <div className="theme-btn text-slate-600 flex items-center ml-2">
             {theme === "dark" && (
               <button
                 title="Switch to Light Theme"
