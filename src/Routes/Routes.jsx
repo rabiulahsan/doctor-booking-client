@@ -2,11 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/HomePage/Home/Home";
 import DoctorsPage from "../Pages/DoctorsPage/DoctorsPage";
-import CreateAccount from "../Pages/CreateAccount/CreateAccount";
-import PatientLogin from "../Pages/PatientLogin/PatientLogin";
-import PatientSignup from "../Pages/PatientLogin/PatientSignup";
-import DoctorSignup from "../Pages/DoctorLogin/DoctorSignup";
-import DoctorLogin from "../Pages/DoctorLogin/DoctorLogin";
+import CreateAccount from "../Pages/LoginFunction/CreateAccount/CreateAccount";
+import PatientLogin from "../Pages/LoginFunction/PatientLogin/PatientLogin";
+import PatientSignup from "../Pages/LoginFunction/PatientLogin/PatientSignup";
+import DoctorSignup from "../Pages/LoginFunction/DoctorLogin/DoctorSignup";
+import DoctorLogin from "../Pages/LoginFunction/DoctorLogin/DoctorLogin";
 
 export const router = createBrowserRouter([
   {

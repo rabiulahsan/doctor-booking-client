@@ -93,10 +93,12 @@ const Navbar = () => {
             <MdOutlineLogout className="text-xl font-semibold" />
           </button>
 
-          <button className="flex gap-x-2 items-center font-bold text-white bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800">
-            Create an Account
-            <LuUserPlus className="text-xl font-semibold" />
-          </button>
+          <Link to="/create-account">
+            <button className="flex gap-x-2 items-center font-bold text-white bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800">
+              Create an Account
+              <LuUserPlus className="text-xl font-semibold" />
+            </button>
+          </Link>
 
           <div className="theme-btn text-slate-600 flex items-center ml-2">
             {theme === "dark" && (
