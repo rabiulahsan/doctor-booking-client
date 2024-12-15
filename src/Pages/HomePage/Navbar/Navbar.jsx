@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import { LuUserPlus } from "react-icons/lu";
 
 const Navbar = () => {
   const handleLogOut = () => {
@@ -93,8 +94,8 @@ const Navbar = () => {
           </button>
 
           <button className="flex gap-x-2 items-center font-bold text-white bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800">
-            Log in
-            <MdOutlineLogin className="text-xl font-semibold" />
+            Create an Account
+            <LuUserPlus className="text-xl font-semibold" />
           </button>
 
           <div className="theme-btn text-slate-600 flex items-center ml-2">
