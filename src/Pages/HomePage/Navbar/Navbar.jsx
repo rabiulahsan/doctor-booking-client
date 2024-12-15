@@ -1,7 +1,7 @@
 import "./navbar.css";
 import { useEffect, useState } from "react";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
-import { MdOutlineLogout, MdOutlineLogin } from "react-icons/md";
+import { MdOutlineLogout } from "react-icons/md";
 import { Link } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
 import { useGSAP } from "@gsap/react";
