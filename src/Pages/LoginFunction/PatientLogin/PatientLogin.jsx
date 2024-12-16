@@ -19,20 +19,53 @@ const PatientLogin = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    signIn(data.email, data.password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        reset();
-        navigate(from, { replace: true });
+  const checkUser = async (email) => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/users/getallusers"
+      );
+      const data = await response.json();
+      // console.log(data);
+      // console.log(email);
 
-        //todo display toast
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
+      // Filter users to find the matching patient
+      const result = data.filter((user) => user.email === email);
+      return result.length > 0 ? result[0] : null; // Return the user if found, otherwise null
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return null; // Return null in case of an error
+    }
   };
+
+  const onSubmit = async (data) => {
+    try {
+      const user = await checkUser(data.email);
+      // console.log(user);
+
+      if (user) {
+        // User exists, proceed with sign-in
+        signIn(data.email, data.password)
+          .then((result) => {
+            const user = result.user;
+            console.log(user);
+            reset();
+            navigate(from, { replace: true });
+
+            // todo display toast
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
+      } else {
+        // User does not exist
+        setError("User does not exist");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      setError("An error occurred. Please try again later.");
+    }
+  };
+
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center py-[2%]">
       <div className="bg-white shadow-lg rounded-lg py-[3%] px-[4%]  max-w-lg w-full">
