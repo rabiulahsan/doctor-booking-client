@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const SearchBar = () => {
-  const [selectedCategory, setSelectedCategory] = useState("");
+const SearchBar = ({ selectedCategory, setSelectedCategory }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchData, setSearchData] = useState("");
 
@@ -26,7 +26,9 @@ const SearchBar = () => {
   };
 
   const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
+    const newCategory = event.target.value; // Get the updated value directly
+    setSelectedCategory(newCategory); // Update the state
+    console.log(newCategory);
     console.log(selectedCategory);
   };
 
