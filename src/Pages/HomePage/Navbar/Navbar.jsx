@@ -1,6 +1,6 @@
 import "./navbar.css";
 import { useEffect, useState } from "react";
-import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
+import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import { MdOutlineLogout } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
@@ -128,7 +128,7 @@ const Navbar = () => {
                 onClick={handleNight}
                 className="mr-5 text-2xl"
               >
-                <BsFillMoonFill />
+                <BsFillMoonStarsFill />
               </button>
             )}
           </div>

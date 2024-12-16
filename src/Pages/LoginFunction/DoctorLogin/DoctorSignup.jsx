@@ -61,7 +61,7 @@ const DoctorSignup = () => {
   };
 
   return (
-    <div className="bg-gray-100 flex items-center justify-center py-[2%]">
+    <div className="bg-gray-100 min-h-screen flex items-center justify-center py-[2%]">
       <div className="bg-white shadow-lg rounded-lg py-[3%] px-[4%]  max-w-lg w-full">
         <h1 className="text-slate-600 font-bold text-2xl text-center">
           Provide Your Information
