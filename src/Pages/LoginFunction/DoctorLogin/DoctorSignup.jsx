@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const DoctorSignup = () => {
   const {
@@ -198,6 +199,14 @@ const DoctorSignup = () => {
             />
           </div>
         </form>
+
+        <p className="mt-5  text-slate-600 text-center">
+          Already have an account?{" "}
+          <Link to="/doctor/login">
+            {" "}
+            <span className="underline font-bold ">login</span>
+          </Link>
+        </p>
       </div>
     </div>
   );
