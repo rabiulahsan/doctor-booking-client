@@ -2,15 +2,25 @@ import "./navbar.css";
 import { useEffect, useState } from "react";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { MdOutlineLogout } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { LuUserPlus } from "react-icons/lu";
+import useAuth from "../../../Hooks/UseAuth/UseAuth";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate();
+  console.log(user);
+
   const handleLogOut = () => {
     console.log("Clicked log out button");
+    logOut()
+      .then(navigate("/"))
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const [theme, setTheme] = useState("system");
@@ -85,20 +95,22 @@ const Navbar = () => {
             </span>
           </div>
 
-          <button
-            onClick={handleLogOut}
-            className="flex gap-x-2 items-center font-bold text-slate-100 bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800"
-          >
-            Log out
-            <MdOutlineLogout className="text-xl font-semibold" />
-          </button>
-
-          <Link to="/create-account">
-            <button className="flex gap-x-2 items-center font-bold text-white bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800">
-              Create an Account
-              <LuUserPlus className="text-xl font-semibold" />
+          {user ? (
+            <button
+              onClick={handleLogOut}
+              className="flex gap-x-2 items-center font-bold text-slate-100 bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800"
+            >
+              Log out
+              <MdOutlineLogout className="text-xl font-semibold" />
             </button>
-          </Link>
+          ) : (
+            <Link to="/create-account">
+              <button className="flex gap-x-2 items-center font-bold text-white bg-slate-700 px-7 py-[10px] rounded-sm hover:bg-slate-800">
+                Create an Account
+                <LuUserPlus className="text-xl font-semibold" />
+              </button>
+            </Link>
+          )}
 
           <div className="theme-btn text-slate-600 flex items-center ml-2">
             {theme === "dark" && (

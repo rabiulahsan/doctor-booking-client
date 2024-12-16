@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../Hooks/UseAuth/UseAuth";
 
 const DoctorSignup = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+
+  const { createUser } = useAuth();
+  const navigate = useNavigate();
 
   const [error, setError] = useState("");
 
@@ -19,6 +24,40 @@ const DoctorSignup = () => {
     setError("");
     console.log("Form Data:", data);
     // Handle form submission logic, such as sending data to the backend.
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+
+      // Prepare the data to be sent to the database
+      const doctorData = {
+        name: data.name,
+        email: data.email,
+        image: data.image,
+        type: data.type,
+        verified: false,
+        createdAt: new Date().toISOString(),
+      };
+
+      // Post the data to the API
+      fetch("http://localhost:5000/api/doctors/postdoctor", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(doctorData),
+      })
+        .then((response) => response.json())
+        .then((responseData) => {
+          console.log("Doctor data saved:", responseData);
+          if (responseData.insertedId) {
+            reset();
+            navigate("/doctor/login");
+          }
+        })
+        .catch((error) => {
+          console.error("Error posting doctor data:", error);
+        });
+    });
   };
 
   return (
