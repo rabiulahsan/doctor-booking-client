@@ -77,7 +77,7 @@ const PatientSignup = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center py-[2%]">
       <div className="bg-white shadow-lg rounded-lg py-[3%] px-[4%]  max-w-lg w-full">
-        <h1 className="text-slate-600 font-bold text-2xl text-center">
+        <h1 className="text-green-600 font-bold text-2xl text-center">
           Provide Your Information
         </h1>
         <form
@@ -217,7 +217,7 @@ const PatientSignup = () => {
 
           <div className="form-control mt-6 flex justify-center items-center">
             <input
-              className="cursor-pointer text-center bg-slate-600 hover:bg-slate-700 text-white font-semibold py-2 px-6 rounded-sm focus:outline-none "
+              className="cursor-pointer text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-sm focus:outline-none "
               type="submit"
               value="Sign Up"
             />
@@ -228,7 +228,7 @@ const PatientSignup = () => {
           Already have an account?{" "}
           <Link to="/patient/login">
             {" "}
-            <span className="underline font-bold ">login</span>
+            <span className="underline font-bold text-green-600">login</span>
           </Link>
         </p>
       </div>
