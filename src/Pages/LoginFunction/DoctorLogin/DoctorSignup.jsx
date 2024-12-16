@@ -11,7 +11,7 @@ const DoctorSignup = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser } = useAuth();
+  const { createUser, logOut } = useAuth();
   const navigate = useNavigate();
 
   const [error, setError] = useState("");
@@ -24,40 +24,54 @@ const DoctorSignup = () => {
     setError("");
     console.log("Form Data:", data);
     // Handle form submission logic, such as sending data to the backend.
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
+    createUser(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
 
-      // Prepare the data to be sent to the database
-      const doctorData = {
-        name: data.name,
-        email: data.email,
-        image: data.image,
-        type: data.type,
-        verified: false,
-        createdAt: new Date().toISOString(),
-      };
+        // Prepare the data to be sent to the database
+        const doctorData = {
+          name: data.name,
+          email: data.email,
+          image: data.image,
+          type: data.type,
+          verified: false,
+          role: "doctor",
+          createdAt: new Date().toISOString(),
+        };
 
-      // Post the data to the API
-      fetch("http://localhost:5000/api/doctors/postdoctor", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(doctorData),
-      })
-        .then((response) => response.json())
-        .then((responseData) => {
-          console.log("Doctor data saved:", responseData);
-          if (responseData.insertedId) {
-            reset();
-            navigate("/doctor/login");
-          }
+        // Post the data to the API
+        fetch("http://localhost:5000/api/doctors/postdoctor", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(doctorData),
         })
-        .catch((error) => {
-          console.error("Error posting doctor data:", error);
-        });
-    });
+          .then((response) => response.json())
+          .then((responseData) => {
+            console.log("Doctor data saved:", responseData);
+            if (responseData.userId) {
+              reset();
+              logOut()
+                .then(navigate("/doctor/login"))
+                .catch((error) => {
+                  console.log(error);
+                });
+            }
+          })
+          .catch((error) => {
+            console.error("Error posting doctor data:", error);
+          });
+      })
+      .catch((error) => {
+        // Set error state with a user-friendly message
+        if (error.message.includes("email-already-in-use")) {
+          setError("patient's email can't be a doctor's email");
+        } else {
+          setError(error.message);
+        }
+      });
   };
 
   return (
