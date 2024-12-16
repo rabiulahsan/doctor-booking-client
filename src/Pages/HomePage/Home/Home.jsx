@@ -5,7 +5,7 @@ import Categories from "../Categories/Categories";
 import Faq from "../Faqs/Faqs";
 import About from "../About/About";
 import Partner from "../Partner/Partner";
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 
 const Home = () => {
   return (
