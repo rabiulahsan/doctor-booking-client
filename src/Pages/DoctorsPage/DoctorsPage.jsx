@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import UseAllDoctors from "../../Hooks/UseAllDoctors/UseAllDoctors";
 import SearchBar from "./SearchBar";
+import DoctorCard from "./DoctorCard";
 
 const DoctorsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [allDoctors, isLoading] = UseAllDoctors();
   const [categoricalDoctor, setCategoricalDoctor] = useState([]);
+  console.log(categoricalDoctor);
 
   // Effect to filter doctors when the category changes
   useEffect(() => {
@@ -27,18 +29,17 @@ const DoctorsPage = () => {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       ></SearchBar>
-      <div className="doctor-list">
+      <>
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          categoricalDoctor.map((doctor) => (
-            <div key={doctor.id} className="doctor-card">
-              <h3>{doctor.name}</h3>
-              <p>{doctor.type}</p>
-            </div>
-          ))
+          <div className="grid gap-x-9 gap-y-7 grid-cols-1 lg:grid-cols-3 px-[8%] my-[4%] ">
+            {categoricalDoctor.map((doctor) => (
+              <DoctorCard doctor={doctor} key={doctor._id}></DoctorCard>
+            ))}
+          </div>
         )}
-      </div>
+      </>
     </>
   );
 };
