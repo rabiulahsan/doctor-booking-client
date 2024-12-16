@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const DoctorCard = ({ doctor }) => {
   //   console.log(doctor);
@@ -65,9 +67,11 @@ const DoctorCard = ({ doctor }) => {
           {new Date().getFullYear() - joining} + years experience
         </p>
         <div className="flex items-center gap-x-5 mt-3">
-          <button className="font-semibold bg-green-500 text-white px-4 py-2 rounded-sm hover:bg-green-600">
-            Details
-          </button>
+          <Link to={`/doctors/${_id}`}>
+            <button className="font-semibold bg-green-500 text-white px-4 py-2 rounded-sm hover:bg-green-600">
+              Details
+            </button>
+          </Link>
           <button className="font-semibold bg-slate-500 text-white px-4 py-2 rounded-sm hover:bg-slate-600">
             Book Now
           </button>
