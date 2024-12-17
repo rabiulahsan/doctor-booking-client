@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import PageBanner from "./PageBanner";
 import { FaStar } from "react-icons/fa";
+import { MdVerified } from "react-icons/md";
+import { AiFillDollarCircle } from "react-icons/ai";
 
 const SingleDoctorPage = () => {
   const loadedData = useLoaderData();
@@ -18,50 +20,54 @@ const SingleDoctorPage = () => {
     rating,
   } = loadedData;
   return (
-    <div className="px-[8%]">
-      <PageBanner></PageBanner>
-      <div className="flex items-center gap-x-10 px-[5%]">
+    <div className="px-[8%] ">
+      <PageBanner image={image}></PageBanner>
+      <div className="flex items-center gap-x-10 px-[5%] pt-[2%]">
         <div className="w-2/3 flex-col">
-          <div className="">
-            <img
-              src={image}
-              alt={name}
-              className="w-[200px] h-[200px] object-cover rounded-full border-4 border-slate-500"
-            />
+          {/* Header Section */}
+          <p className="flex items-center gap-x-5 mb-2">
+            <span className="text-slate-700 font-bold text-[27px] leading-tight">
+              {name}
+            </span>
+            <span className="bg-green-200 text-green-700 text-xs  font-bold px-3 py-2 rounded-sm">
+              {type}
+            </span>
+          </p>
 
-            <div className="mt-3">
-              {/* Header Section */}
-              <p className="flex items-center gap-x-5 mb-2">
-                <span className="text-slate-700 font-bold text-[27px] leading-tight">
-                  {name}
+          {/* Details Section */}
+          <div className="flex justify-between items-center text-slate-500 font-semibold text-lg">
+            {/* Address */}
+            <p className="flex-1 text-ellipsis overflow-hidden tracking-tighter whitespace-nowrap text-base">
+              {address}, {country}
+            </p>
+
+            {/* Fee and Rating */}
+            <div className="flex items-center gap-x-6">
+              {/* verified  */}
+              <p className="flex items-center bg-slate-300 text-slate-700 font-semibold text-sm px-[10px] py-[6px] gap-x-1 rounded-sm">
+                <span className="flex items-center justify-center">
+                  <MdVerified className="text-lg" />
                 </span>
-                <span className="bg-green-200 text-green-700 text-xs font-bold px-3 py-2 rounded-sm">
-                  {type}
+                <span className="flex items-center leading-none">verified</span>
+              </p>
+
+              {/* Fee */}
+              <p className="flex items-center bg-slate-300 text-slate-700 font-semibold text-sm px-[10px] py-[6px] gap-x-1 rounded-sm">
+                <span className="flex items-center justify-center">
+                  <AiFillDollarCircle className="text-lg" />
+                </span>
+                <span className="flex items-center leading-none">
+                  {fee}/visit
                 </span>
               </p>
 
-              {/* Details Section */}
-              <div className="flex justify-between items-center text-slate-500 font-semibold text-lg">
-                {/* Address */}
-                <p className="flex-1 text-ellipsis overflow-hidden whitespace-nowrap text-base">
-                  {address}, {country}
-                </p>
-
-                {/* Fee and Rating */}
-                <div className="flex items-center gap-x-6">
-                  {/* Fee */}
-                  <p className="flex items-center gap-x-1">
-                    <span className="font-bold text-slate-700">{fee}$</span>
-                    <span className="text-slate-500 font-normal">/visit</span>
-                  </p>
-
-                  {/* Rating */}
-                  <p className="flex items-center gap-x-1 text-yellow-500">
-                    <span className="font-bold text-slate-700">{rating}</span>
-                    <FaStar className="text-yellow-400 text-lg" />
-                  </p>
-                </div>
-              </div>
+              {/* Rating */}
+              <p className="flex items-center bg-slate-300 text-slate-700 font-semibold text-sm px-4 py-[8px] gap-x-1 rounded-sm">
+                <span className="flex items-center leading-none">{rating}</span>
+                <span className="flex items-center justify-center text-slate-600">
+                  <FaStar className="" />
+                </span>
+              </p>
             </div>
           </div>
         </div>
