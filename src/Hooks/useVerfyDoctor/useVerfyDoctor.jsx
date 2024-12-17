@@ -2,34 +2,34 @@ import { useEffect, useState } from "react";
 import useAuth from "../useAuth/useAuth";
 import useAxiosSecure from "../UseAxiosSecure/UseAxiosSecure";
 
-const UseVerifyPatient = () => {
+const useVerfyDoctor = () => {
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
-  const [isPatient, setIsPatient] = useState(false);
+  const [isDoctor, setIsDoctor] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (loading || !user?.email) return;
 
-    const verifyPatient = async () => {
+    const verifyDoctor = async () => {
       setIsLoading(true);
       try {
         const res = await axiosSecure.get(
-          `/api/users/role?email=${user.email}`
+          `/api/doctors/role?email=${user.email}`
         );
-        setIsPatient(res.data.isUser);
+        setIsDoctor(res.data.isDoctor);
       } catch (error) {
         console.error("Error verifying instructor:", error);
-        setIsPatient(false); // Default to false on error
+        setIsDoctor(false); // Default to false on error
       } finally {
         setIsLoading(false);
       }
     };
 
-    verifyPatient();
+    verifyDoctor();
   }, [user?.email, loading, axiosSecure]);
-  return [isPatient, isLoading];
+  return [isDoctor, isLoading];
 };
 
-export default UseVerifyPatient;
+export default useVerfyDoctor;

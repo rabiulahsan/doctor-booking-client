@@ -9,6 +9,7 @@ import { gsap } from "gsap";
 import { LuUserPlus } from "react-icons/lu";
 import UseVerifyPatient from "../../../Hooks/UseVerifyPatient/UseVerifyPatient";
 import useAuth from "../../../Hooks/useAuth/useAuth";
+import useVerfyDoctor from "../../../Hooks/useVerfyDoctor/useVerfyDoctor";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -16,7 +17,8 @@ const Navbar = () => {
   // console.log(user);
 
   const [isPatient] = UseVerifyPatient();
-  console.log(isPatient);
+  const [isDoctor] = useVerfyDoctor();
+  console.log(isDoctor);
 
   const handleLogOut = () => {
     console.log("Clicked log out button");
