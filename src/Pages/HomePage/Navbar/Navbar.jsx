@@ -7,12 +7,16 @@ import ActiveLink from "../../../Components/ActiveLink/ActiveLink";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { LuUserPlus } from "react-icons/lu";
-import useAuth from "../../../Hooks/UseAuth/UseAuth";
+import UseVerifyPatient from "../../../Hooks/UseVerifyPatient/UseVerifyPatient";
+import useAuth from "../../../Hooks/useAuth/useAuth";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
+
+  const [isPatient] = UseVerifyPatient();
+  console.log(isPatient);
 
   const handleLogOut = () => {
     console.log("Clicked log out button");
