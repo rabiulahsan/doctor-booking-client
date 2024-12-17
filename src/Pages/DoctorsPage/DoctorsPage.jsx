@@ -36,8 +36,8 @@ const DoctorsPage = () => {
           <p>Loading...</p>
         ) : (
           <div className="grid gap-x-9 gap-y-7 grid-cols-1 lg:grid-cols-3 px-[8%] my-[4%] ">
-            {categoricalDoctor.map((doctor) => (
-              <DoctorCard doctor={doctor} key={doctor._id}></DoctorCard>
+            {categoricalDoctor?.map((doctor) => (
+              <DoctorCard doctor={doctor} key={doctor?._id}></DoctorCard>
             ))}
           </div>
         )}

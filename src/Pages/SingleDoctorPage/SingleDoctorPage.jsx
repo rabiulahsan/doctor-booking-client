@@ -124,7 +124,7 @@ const SingleDoctorPage = () => {
         </div>
 
         {/* right side  */}
-        <div className="w-1/3 border border-slate-300 rounded-md pt-5 px-5">
+        <div className="w-1/3 border border-slate-300 rounded-md pt-5 px-5 ">
           <h2 className="text-xl  text-slate-700 font-bold mb-6 text-center">
             Available Dates
           </h2>
@@ -154,7 +154,7 @@ const SingleDoctorPage = () => {
           </div>
         </div>
       </div>
-      <SameCatDoctor type={type}></SameCatDoctor>
+      <SameCatDoctor type={type} _id={_id}></SameCatDoctor>
     </div>
   );
 };
