@@ -11,7 +11,7 @@ const DoctorCard = ({ doctor }) => {
         <img
           src={image}
           alt={name}
-          className="w-[60px] h-[60px] object-cover rounded-full border-[3px] border-slate-600"
+          className="w-[60px] h-[60px] object-cover rounded-full border-[3px] border-slate-600 bg-white"
         />
 
         {/* Rating */}

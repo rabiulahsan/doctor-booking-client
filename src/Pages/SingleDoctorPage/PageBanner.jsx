@@ -17,7 +17,7 @@ const PageBanner = ({ image }) => {
         <img
           src={image}
           alt=""
-          className="h-[180px] w-[180px] rounded-full border-4  border-slate-300 object-cover"
+          className="h-[180px] w-[180px] rounded-full border-4  border-slate-300 object-cover bg-white"
         />
       </div>
     </div>
