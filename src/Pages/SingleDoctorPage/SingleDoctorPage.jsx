@@ -3,6 +3,7 @@ import PageBanner from "./PageBanner";
 import { FaStar } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 import { AiFillDollarCircle } from "react-icons/ai";
+import SameCatDoctor from "./SameCatDoctor";
 
 const SingleDoctorPage = () => {
   const loadedData = useLoaderData();
@@ -153,6 +154,7 @@ const SingleDoctorPage = () => {
           </div>
         </div>
       </div>
+      <SameCatDoctor type={type}></SameCatDoctor>
     </div>
   );
 };
