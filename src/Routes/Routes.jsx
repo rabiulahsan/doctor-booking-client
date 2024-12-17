@@ -24,7 +24,9 @@ export const router = createBrowserRouter([
         path: "/doctors/:id",
         element: <SingleDoctorPage></SingleDoctorPage>,
         loader: ({ params }) => {
-          fetch(`http:localhost:5000/api/doctors/getsingledoctor/${params.id}`);
+          return fetch(
+            `http://localhost:5000/api/doctors/getsingledoctor/${params.id}`
+          );
         },
       },
       {
