@@ -7,6 +7,7 @@ import PatientLogin from "../Pages/LoginFunction/PatientLogin/PatientLogin";
 import PatientSignup from "../Pages/LoginFunction/PatientLogin/PatientSignup";
 import DoctorSignup from "../Pages/LoginFunction/DoctorLogin/DoctorSignup";
 import DoctorLogin from "../Pages/LoginFunction/DoctorLogin/DoctorLogin";
+import SingleDoctorPage from "../Pages/SingleDoctorPage/SingleDoctorPage";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,13 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       { path: "/doctors", element: <DoctorsPage></DoctorsPage> },
+      {
+        path: "/doctors/:id",
+        element: <SingleDoctorPage></SingleDoctorPage>,
+        loader: ({ params }) => {
+          fetch(`http:localhost:5000/api/doctors/getsingledoctor/${params.id}`);
+        },
+      },
       {
         path: "/create-account",
         element: <CreateAccount></CreateAccount>,

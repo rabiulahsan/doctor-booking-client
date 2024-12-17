@@ -68,11 +68,11 @@ const DoctorCard = ({ doctor }) => {
         </p>
         <div className="flex items-center gap-x-5 mt-3">
           <Link to={`/doctors/${_id}`}>
-            <button className="font-semibold bg-green-500 text-white text-sm px-4 py-2 rounded-sm hover:bg-green-600">
+            <button className="font-semibold bg-green-200 text-green-700 text-sm px-4 py-2 rounded-sm hover:bg-green-300">
               Details
             </button>
           </Link>
-          <button className="font-semibold bg-green-500 text-white text-sm px-4 py-2 rounded-sm hover:bg-slate-600">
+          <button className="font-semibold bg-slate-200 text-slate-700 text-sm px-4 py-2 rounded-sm hover:bg-slate-300">
             Book Now
           </button>
         </div>

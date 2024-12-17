@@ -18,7 +18,6 @@ const Navbar = () => {
 
   const [isPatient] = UseVerifyPatient();
   const [isDoctor] = useVerfyDoctor();
-  console.log(isDoctor);
 
   const handleLogOut = () => {
     console.log("Clicked log out button");
