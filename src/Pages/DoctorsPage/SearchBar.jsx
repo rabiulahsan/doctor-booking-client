@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const SearchBar = ({ selectedCategory, setSelectedCategory }) => {
+const SearchBar = ({
+  selectedCategory,
+  setSelectedCategory,
+  setCategoricalDoctor,
+  allDoctors,
+}) => {
   const [searchInput, setSearchInput] = useState("");
-  const [searchData, setSearchData] = useState("");
+  const [searchData, setSearchData] = useState([]);
 
   const fetchSearchData = (value) => {
     fetch("http://localhost:5000/api/doctors/getalldoctors")
@@ -28,8 +33,15 @@ const SearchBar = ({ selectedCategory, setSelectedCategory }) => {
   const handleCategoryChange = (event) => {
     const newCategory = event.target.value; // Get the updated value directly
     setSelectedCategory(newCategory); // Update the state
-    console.log(newCategory);
-    console.log(selectedCategory);
+    // console.log(newCategory);
+    // console.log(selectedCategory);
+  };
+
+  const handleClear = () => {
+    setCategoricalDoctor(allDoctors);
+    setSelectedCategory("");
+    setSearchInput("");
+    setSearchData([]);
   };
 
   return (
@@ -74,6 +86,14 @@ const SearchBar = ({ selectedCategory, setSelectedCategory }) => {
             </option>
           ))}
         </select>
+      </div>
+      <div className="">
+        <button
+          onClick={handleClear}
+          className="font-semibold text-white bg-slate-600 hover:bg-slate-700 px-5 py-3 rounded-sm"
+        >
+          Clear All
+        </button>
       </div>
     </div>
   );

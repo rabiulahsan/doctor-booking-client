@@ -28,6 +28,8 @@ const DoctorsPage = () => {
       <SearchBar
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
+        setCategoricalDoctor={setCategoricalDoctor}
+        allDoctors={allDoctors}
       ></SearchBar>
       <>
         {isLoading ? (
