@@ -4,7 +4,7 @@ import useVerifyDoctor from "../../Hooks/UseVerifyDoctor/UseVerifyDoctor";
 
 const SingleDoctorRightSide = ({ availability }) => {
   const [isDoctor] = useVerifyDoctor();
-  console.log(isDoctor);
+  // console.log(isDoctor);
 
   const convertTo12HourFormat = (time) => {
     const [hour, minute] = time.split(":");
