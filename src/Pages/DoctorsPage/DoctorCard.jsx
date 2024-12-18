@@ -79,9 +79,11 @@ const DoctorCard = ({ doctor }) => {
 
           {/* //todo is loading animation  */}
           {isPatient && (
-            <button className="font-semibold bg-slate-200 text-slate-700 text-sm px-4 py-2 rounded-sm hover:bg-slate-300">
-              Book Now
-            </button>
+            <Link to={`/booking/${_id}`}>
+              <button className="font-semibold bg-slate-200 text-slate-700 text-sm px-4 py-2 rounded-sm hover:bg-slate-300">
+                Book Now
+              </button>
+            </Link>
           )}
         </div>
       </div>

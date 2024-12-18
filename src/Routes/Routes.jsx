@@ -8,6 +8,7 @@ import PatientSignup from "../Pages/LoginFunction/PatientLogin/PatientSignup";
 import DoctorSignup from "../Pages/LoginFunction/DoctorLogin/DoctorSignup";
 import DoctorLogin from "../Pages/LoginFunction/DoctorLogin/DoctorLogin";
 import SingleDoctorPage from "../Pages/SingleDoctorPage/SingleDoctorPage";
+import BookingPage from "../Pages/BookingPage/BookingPage";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,15 @@ export const router = createBrowserRouter([
       {
         path: "/doctors/:id",
         element: <SingleDoctorPage></SingleDoctorPage>,
+        loader: ({ params }) => {
+          return fetch(
+            `http://localhost:5000/api/doctors/getsingledoctor/${params.id}`
+          );
+        },
+      },
+      {
+        path: "/booking/:id",
+        element: <BookingPage></BookingPage>,
         loader: ({ params }) => {
           return fetch(
             `http://localhost:5000/api/doctors/getsingledoctor/${params.id}`

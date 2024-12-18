@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
 import useVerifyDoctor from "../../Hooks/UseVerifyDoctor/UseVerifyDoctor";
 
-const SingleDoctorRightSide = ({ availability }) => {
+const SingleDoctorRightSide = ({ availability, _id }) => {
   const [isDoctor] = useVerifyDoctor();
   // console.log(isDoctor);
 
@@ -38,14 +39,16 @@ const SingleDoctorRightSide = ({ availability }) => {
         ))}
       </div>
       <div className="flex items-center justify-center">
-        <button
-          className={`font-semibold text-white bg-green-600 hover:bg-green-700 px-6 py-3 mt-5 rounded ${
-            isDoctor ? "disabled:bg-gray-400" : ""
-          }`}
-          disabled={isDoctor}
-        >
-          Make Appointments
-        </button>
+        <Link to={`/booking/${_id}`}>
+          <button
+            className={`font-semibold text-white bg-green-600 hover:bg-green-700 px-6 py-3 mt-5 rounded ${
+              isDoctor ? "disabled:bg-gray-400" : ""
+            }`}
+            disabled={isDoctor}
+          >
+            Make Appointments
+          </button>
+        </Link>
       </div>
     </div>
   );

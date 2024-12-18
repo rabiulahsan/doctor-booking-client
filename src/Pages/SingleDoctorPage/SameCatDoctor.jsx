@@ -19,7 +19,7 @@ const SameCatDoctor = ({ type, _id }) => {
     setSameCatDoctors(newFilteredDoctors);
   }, [_id, type, allDoctors]);
 
-  console.log(sameCatDoctos);
+  // console.log(sameCatDoctos);
 
   return (
     <div>

@@ -120,6 +120,7 @@ const SingleDoctorPage = () => {
         {/* right side  */}
         <SingleDoctorRightSide
           availability={availability}
+          _id={_id}
         ></SingleDoctorRightSide>
       </div>
       <SameCatDoctor type={type} _id={_id}></SameCatDoctor>
