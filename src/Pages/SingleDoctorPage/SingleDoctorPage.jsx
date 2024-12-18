@@ -8,7 +8,7 @@ import SingleDoctorRightSide from "./SingleDoctorRightSide";
 
 const SingleDoctorPage = () => {
   const loadedData = useLoaderData();
-  console.log(loadedData);
+  // console.log(loadedData);
   const {
     _id,
     name,

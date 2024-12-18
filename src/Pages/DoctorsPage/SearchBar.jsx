@@ -23,7 +23,7 @@ const SearchBar = ({
       });
   };
 
-  console.log(searchData);
+  // console.log(searchData);
 
   const handleSearch = (e) => {
     setSearchInput(e.target.value);

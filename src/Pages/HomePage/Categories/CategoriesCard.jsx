@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const CategoriesCard = ({ specialist }) => {
   const { name, data, image } = specialist;
-  console.log(specialist);
+  // console.log(specialist);
 
   useGSAP(() => {
     gsap.from(".cat-image", {

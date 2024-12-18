@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../useAuth/useAuth";
 import useAxiosSecure from "../UseAxiosSecure/UseAxiosSecure";
 
-const useVerfyDoctor = () => {
+const useVerifyDoctor = () => {
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
@@ -32,4 +32,4 @@ const useVerfyDoctor = () => {
   return [isDoctor, isLoading];
 };
 
-export default useVerfyDoctor;
+export default useVerifyDoctor;

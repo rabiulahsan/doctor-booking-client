@@ -1,5 +1,11 @@
 /* eslint-disable react/prop-types */
+
+import useVerifyDoctor from "../../Hooks/UseVerifyDoctor/UseVerifyDoctor";
+
 const SingleDoctorRightSide = ({ availability }) => {
+  const [isDoctor] = useVerifyDoctor();
+  console.log(isDoctor);
+
   const convertTo12HourFormat = (time) => {
     const [hour, minute] = time.split(":");
     const hour12 = ((+hour + 11) % 12) + 1; // Converts 24hr to 12hr
@@ -32,7 +38,12 @@ const SingleDoctorRightSide = ({ availability }) => {
         ))}
       </div>
       <div className="flex items-center justify-center">
-        <button className="font-semibold text-white bg-green-600 hover:bg-green-700 px-6 py-3 mt-5 rounded">
+        <button
+          className={`font-semibold text-white bg-green-600 hover:bg-green-700 px-6 py-3 mt-5 rounded ${
+            isDoctor ? "disabled:bg-gray-400" : ""
+          }`}
+          disabled={isDoctor}
+        >
           Make Appointments
         </button>
       </div>

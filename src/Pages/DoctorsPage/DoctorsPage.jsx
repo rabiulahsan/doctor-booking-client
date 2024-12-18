@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import UseAllDoctors from "../../Hooks/UseAllDoctors/UseAllDoctors";
 import SearchBar from "./SearchBar";
 import DoctorCard from "./DoctorCard";
+import StaggerAnimation from "../../Components/StaggerAnimation/StaggerAnimation";
 
 const DoctorsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [allDoctors, isLoading] = UseAllDoctors();
   const [categoricalDoctor, setCategoricalDoctor] = useState([]);
-  console.log(categoricalDoctor);
+  // console.log(categoricalDoctor);
 
   // Effect to filter doctors when the category changes
   useEffect(() => {
@@ -24,7 +24,7 @@ const DoctorsPage = () => {
 
   return (
     <>
-      <SectionTitle heading={"Find Your Doctor"}></SectionTitle>
+      <StaggerAnimation text={"Find Your Doctor"}></StaggerAnimation>
       <SearchBar
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}

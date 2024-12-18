@@ -1,7 +1,7 @@
-import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../Hooks/useAuth/useAuth";
 
 const DoctorLogin = () => {
   const { signIn } = useAuth();
@@ -47,7 +47,7 @@ const DoctorLogin = () => {
         signIn(data.email, data.password)
           .then((result) => {
             const user = result.user;
-            console.log(user);
+            // console.log(user);
             reset();
             navigate(from, { replace: true });
 
