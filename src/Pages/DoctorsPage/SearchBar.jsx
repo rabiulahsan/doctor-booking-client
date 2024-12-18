@@ -11,16 +11,10 @@ const SearchBar = ({
   const [searchData, setSearchData] = useState([]);
 
   const fetchSearchData = (value) => {
-    fetch("http://localhost:5000/api/doctors/getalldoctors")
-      .then((response) => response.json())
-      .then((json) => {
-        const results = json.filter((doc) => {
-          return (
-            value && doc && doc.name && doc.name.toLowerCase().includes(value)
-          );
-        });
-        setSearchData(results);
-      });
+    const results = allDoctors?.filter((doc) => {
+      return value && doc && doc.name && doc.name.toLowerCase().includes(value);
+    });
+    setSearchData(results);
   };
 
   // console.log(searchData);
@@ -28,6 +22,7 @@ const SearchBar = ({
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
     fetchSearchData(e.target.value);
+    setCategoricalDoctor(searchData);
   };
 
   const handleCategoryChange = (event) => {
