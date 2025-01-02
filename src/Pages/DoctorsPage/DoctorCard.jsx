@@ -5,7 +5,7 @@ import UseVerifyPatient from "../../Hooks/UseVerifyPatient/UseVerifyPatient";
 const DoctorCard = ({ doctor }) => {
   //   console.log(doctor);
   const { _id, name, title, image, rating, fee, joining } = doctor;
-  const [isPatient, isLoading] = UseVerifyPatient();
+  const [isPatient] = UseVerifyPatient();
   console.log(isPatient);
 
   return (
