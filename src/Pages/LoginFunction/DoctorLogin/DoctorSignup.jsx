@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../../../Hooks/UseAuth/UseAuth";
+import useAuth from "../../../Hooks/useAuth/useAuth";
 
 const DoctorSignup = () => {
   const {
@@ -51,7 +51,7 @@ const DoctorSignup = () => {
           .then((response) => response.json())
           .then((responseData) => {
             console.log("Doctor data saved:", responseData);
-            if (responseData.userId) {
+            if (responseData.doctorId) {
               reset();
               logOut()
                 .then(navigate("/doctor/login"))

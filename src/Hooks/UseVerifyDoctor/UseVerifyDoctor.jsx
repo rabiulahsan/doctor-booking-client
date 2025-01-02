@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useAuth from "../useAuth/useAuth";
-import useAxiosSecure from "../UseAxiosSecure/UseAxiosSecure";
+import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 
 const useVerifyDoctor = () => {
   const { user, loading } = useAuth();

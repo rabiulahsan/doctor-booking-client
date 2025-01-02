@@ -10,6 +10,7 @@ import { IoMdTime } from "react-icons/io";
 const BookingPage = () => {
   const loadedData = useLoaderData();
   const { _id, fee, country, availability, unavailableDates } = loadedData;
+  //   console.log(unavailableDates);
 
   const [value, setValue] = useState(dayjs());
   const [disabledDates, setDisabledDates] = useState([]);

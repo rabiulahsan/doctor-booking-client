@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import useAuth from "../../../Hooks/UseAuth/UseAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import useAuth from "../../../Hooks/useAuth/useAuth";
 
 const PatientSignup = () => {
   const {

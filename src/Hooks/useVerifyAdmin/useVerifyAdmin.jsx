@@ -1,35 +1,38 @@
 import { useEffect, useState } from "react";
-import useAuth from "../useAuth/useAuth";
 import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
+import useAuth from "../useAuth/useAuth";
 
-const useVerifyPatient = () => {
+const useVerifyAdmin = () => {
   const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
-  const [isPatient, setIsPatient] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  //   console.log(user?.email);
 
   useEffect(() => {
     if (loading || !user?.email) return;
 
-    const verifyPatient = async () => {
+    const verifyAdmin = async () => {
       setIsLoading(true);
       try {
         const res = await axiosSecure.get(
-          `/api/users/role?email=${user.email}`
+          `/api/admins/role?email=${user.email}`
         );
-        setIsPatient(res.data.isUser);
+        // console.log(res);
+        setIsAdmin(res.data.isAdmin);
       } catch (error) {
-        console.error("Error verifying instructor:", error);
-        setIsPatient(false); // Default to false on error
+        console.error("Error verifying Admin:", error);
+        setIsAdmin(false); // Default to false on error
       } finally {
         setIsLoading(false);
       }
     };
 
-    verifyPatient();
+    verifyAdmin();
   }, [user?.email, loading, axiosSecure]);
-  return [isPatient, isLoading];
+  return [isAdmin, isLoading];
 };
 
-export default useVerifyPatient;
+export default useVerifyAdmin;
