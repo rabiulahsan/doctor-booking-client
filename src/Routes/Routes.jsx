@@ -9,6 +9,7 @@ import DoctorSignup from "../Pages/LoginFunction/DoctorLogin/DoctorSignup";
 import DoctorLogin from "../Pages/LoginFunction/DoctorLogin/DoctorLogin";
 import SingleDoctorPage from "../Pages/SingleDoctorPage/SingleDoctorPage";
 import BookingPage from "../Pages/BookingPage/BookingPage";
+import AdminLogin from "../Pages/LoginFunction/AdminLogin/AdminLogin";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: "/doctor/login",
         element: <DoctorLogin></DoctorLogin>,
+      },
+      {
+        path: "/master-admin-login",
+        element: <AdminLogin></AdminLogin>,
       },
     ],
   },
